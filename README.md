@@ -2,7 +2,7 @@
 
 ## Problem statement
 
-Build an AI system that extracts six fields from rental agreements across different templates:
+Build an AI/ML system that extracts six fields from rental agreements across different templates:
 Agreement Value, Start Date, End Date, Notice Period, Party One, and Party Two. The assignment
 requires document-based extraction without a rule-based or regex approach, test-set outputs,
 per-field recall and instructions to reproduce the results. A REST API is optional.

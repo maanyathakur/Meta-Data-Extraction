@@ -11,6 +11,16 @@ This application uses an LLM to interpret agreement clauses. It supports native 
 scans through a FastAPI backend, Streamlit interface, and batch CLI. Reference answers are used
 only for evaluation; there is no model training or fine-tuning.
 
+## Live demo for evaluation
+
+The application is deployed on an Azure VM.
+
+- [Open the application](https://maanya-metadata-extraction-poc.centralindia.cloudapp.azure.com/)
+- [Open Swagger API documentation](https://maanya-metadata-extraction-poc.centralindia.cloudapp.azure.com/docs)
+
+If the model's API quota is exhausted, the application will show an error in the results.
+Please retry after the provider's quota resets; availability may not return immediately.
+
 ## Dataset review and changes
 
 The dataset has 10 train documents and 4 test documents. Comparing the actual agreements with
@@ -101,6 +111,7 @@ remain possible.
 The small dataset has varied layouts and scans. Direct multimodal extraction keeps clauses
 in context, distinguishes rent from deposits and termination from renewal, and provides evidence
 without requiring task-specific training.
+
 The following approaches were considered when choosing the solution:
 
 | Approach considered | Where it helps | Decision for this assignment |
@@ -110,7 +121,6 @@ The following approaches were considered when choosing the solution:
 | OCR + text LLM | Text-only providers and scanned inputs | Implemented as a fallback; OCR can damage amounts, dates, and initials |
 | Multimodal LLM | Native text and scans with varying layouts | Selected as the primary approach; requires available provider capacity and local validation |
 | Vector RAG | Finding relevant content in large documents or collections | A scaling option for longer documents; the current documents are small fit and within the input limits, so retrieval would add unnecessary complexity. |
-
 
 ## Installation and setup
 
